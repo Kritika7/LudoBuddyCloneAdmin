@@ -1,0 +1,34 @@
+<p class="text-center h4">ID: {{id}}</p>
+<p class="text-center h4">{{playerOne}} Vs {{playerTwo}} - {{amount}}</p>
+
+<mat-card class="mt-3 ml-3 mr-3">
+  <mat-card-header>
+    <mat-card-title class="h5"> Ludo </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Started At: </p>
+    <p>Last Updated:</p>
+    <p>Match Duration:</p>
+    <p>Room Code:</p>
+    <p>Remarks: <mat-icon> border_color</mat-icon></p>
+    <div class="result">
+    <p class="d-inline font-weight-bold">Results:</p>
+    <mat-form-field class="ml-3">
+      <mat-select name="selectedresult" [(value)]="selectedResult">
+        <mat-option [value]="'select'">Click to select</mat-option>
+        <mat-option [value]="'playeronewins'">{{playerOne}} Wins</mat-option>
+        <mat-option [value]="'playertwowins'">{{playerTwo}} Wins</mat-option>
+        <mat-option [value]="'cancel'">Cancel</mat-option>
+        <mat-option [value]="'dispute'">Dispute</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="mb-3">
+    <button class="btn btn-primary float-right updateBtn" (click)="updateResult()">Update Result</button>
+  </div>
+    <p><button class="btn btn-link userViewBtn" (click)="userView()" style="margin:auto!important">{{playerOne}}</button> Response: {{gameStatus[0]}}</p>
+    <p>Screenshot Time: {{screenshotTime}}</p>
+    <p>{{playerTwo}} Response: {{gameStatus[2]}}</p>
+    <p>{{reasonForCancellation}}</p>
+  </mat-card-content>
+</mat-card>

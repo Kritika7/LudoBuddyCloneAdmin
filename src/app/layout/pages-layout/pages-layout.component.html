@@ -1,0 +1,4 @@
+<div [@routeAnimations]="prepareRoute(outlet)" fxLayout="column" fxLayoutAlign="center" class="p-2" [ngClass]="{'animate': animate}"
+style="height: 100vh; max-width: 760px !important; margin: auto !important;">
+    <router-outlet #outlet="outlet"></router-outlet>
+</div>

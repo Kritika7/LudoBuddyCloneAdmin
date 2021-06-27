@@ -1,0 +1,32 @@
+.btn{
+  border-radius: 25px;
+  font-size: 15px;
+}
+
+mat-icon{
+  vertical-align: middle
+}
+input {
+  border-radius: 10rem;
+}
+
+.copy_wrapper{
+  width:400px;
+  height:40px;
+  position:relative;
+}
+
+#copy_field {
+  margin-left:40px;
+  background:transparent;
+  height:40px;
+}
+
+#copy_button {
+  position:absolute;
+  top:0;
+  right:0;
+  width:80px;
+  height:40px;
+}
+

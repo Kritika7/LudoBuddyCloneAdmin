@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ludo-buddy-7052d": {
+      "hosting": {
+        "ludobuddy-clone": [
+          "ludo-buddy-7052d"
+        ]
+      }
+    }
+  }
+}

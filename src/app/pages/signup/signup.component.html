@@ -1,0 +1,59 @@
+<mat-card class="w-100 mat-elevation-z0" style="max-width: 760px; margin: auto !important;">
+    
+    <mat-card-content *ngIf="signupForm">
+        <div class="text-center">
+            <img src="./../../../assets/images/ludo.png" alt="" srcset="" style="max-width: 120px;">
+        </div>
+        <p class="mt-5 text-center" style="font-size: large;border-bottom: 1px solid gainsboro;"><strong>Register</strong> a new account</p>
+        <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+            <mat-form-field appearance="outline" class="w-100 custom pb-1">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name"
+                type="text"
+                required
+                placeholder="Your name">
+                <span matSuffix><mat-icon class="mat-18">perm_identity</mat-icon></span>
+            </mat-form-field>
+            <div  fxLayout="row" fxLayoutAlign="space-between center" >
+                <mat-form-field class="w-100 custom  pb-1" appearance="outline">
+                    <mat-label>Mobile No.</mat-label>
+                    <input matInput style="border-radius: 50px;" formControlName="phone"
+                    type="number"
+                    required
+                    placeholder="Your Mobile No.">
+                    <span matSuffix><mat-icon class="mat-18">settings_cell</mat-icon></span>
+                </mat-form-field>
+                <button color="accent" type="button" class="ml-2" style="height: min-content !important; min-width: 90px" mat-raised-button (click)="getTOIP()">Get OTP</button>
+            </div>
+            <mat-form-field class="w-100 custom  pb-1" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput style="border-radius: 50px;" formControlName="password"
+                type="text"
+                required
+                placeholder="Enter password">
+                <span matSuffix><mat-icon class="mat-18">lock</mat-icon></span>
+            </mat-form-field>
+            <mat-form-field class="w-100 custom  pb-1" appearance="outline">
+                <mat-label>OTP</mat-label>
+                <input matInput style="border-radius: 50px;" formControlName="otp"
+                type="text"
+                required
+                placeholder="Enter OTP">
+                <span matSuffix><mat-icon class="mat-18">lock</mat-icon></span>
+            </mat-form-field>
+            <div class="text-center">
+                <button style="width: 180px;" mat-raised-button color="primary">Register</button>
+                <p style="font-size: large" class="mt-3">
+                    <a [routerLink]="['/login']">Already Registered? Login</a>
+                </p>
+            </div>
+        </form>
+    </mat-card-content>
+    <mat-card-actions align="start">
+        <!-- <button mat-button (click)="onAction1">Action1</button> -->
+        
+    </mat-card-actions>
+    <mat-card-footer>
+        <p style="font-size: small;">By clicking register, you agree that you are 18 years or older and not a resident of Telangana, Assam, Orissa, Kerala, Sikkim, Nagaland or Gujarat.</p>
+    </mat-card-footer>
+</mat-card>

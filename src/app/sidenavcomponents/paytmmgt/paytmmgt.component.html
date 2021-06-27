@@ -1,0 +1,132 @@
+
+<mat-card class="mb-4 ml-3 mr-3">
+  <mat-card-header>
+    <mat-card-title>
+      Add New Number
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content *ngIf="submitForm">
+    <form [formGroup]="submitForm" (ngSubmit)="onSubmit()" style="margin: auto !important;">
+      <div class="form-group row">
+        <label for="mob" class="col-sm-2 col-form-label text-right font-weight-bold">Mobile No.</label>
+        <div class="col-sm-10">
+          <input type="number" formControlName="mobile" id="mob" class="form-control" [ngClass]="{'is-invalid': submitted && f.mobile.errors }" />
+        </div>
+        <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+          <div *ngIf="f.mobile.errors.required">Mobile is required</div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="pass" class="col-sm-2 col-form-label text-right font-weight-bold">Password</label>
+        <div class="col-sm-10">
+          <input type="password" id="pass" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        </div>
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+      </div>
+    </form>
+    <mat-card-actions class="mb-3">
+      <button mat-button class="btn btn-success float-right submitbtn">
+        Submit </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+
+
+<mat-card class="mb-4 ml-3 mr-3">
+  <mat-card-header>
+    <mat-card-title>
+      Verify New Number
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content *ngIf="verifyForm">
+    <form [formGroup]="verifyForm" (ngSubmit)="onVerify()" style="margin: auto !important;">
+      <div class="form-group row">
+        <label for="mob" class="col-sm-2 col-form-label text-right font-weight-bold">Mobile No.</label>
+        <div class="col-sm-10">
+          <input type="number" formControlName="mobile" id="mob" class="form-control" [ngClass]="{'is-invalid': submitted && k.mobile.errors }" />
+        </div>
+        <div *ngIf="submitted && k.mobile.errors" class="invalid-feedback">
+          <div *ngIf="k.mobile.errors.required">Mobile is required</div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="otp" class="col-sm-2 col-form-label text-right font-weight-bold">OTP</label>
+        <div class="col-sm-10">
+          <input type="number" formControlName="otp" id="otp" class="form-control" [ngClass]="{'is-invalid': submitted && k.otp.errors }" />
+        </div>
+        <div *ngIf="submitted && k.otp.errors" class="invalid-feedback">
+          <div *ngIf="k.otp.errors.required">OTP is required</div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="upi" class="col-sm-2 col-form-label text-right font-weight-bold">UPI</label>
+        <div class="col-sm-10">
+          <input type="number" formControlName="upi" id="upi" class="form-control" [ngClass]="{'is-invalid': submitted && k.upi.errors }" />
+        </div>
+        <div *ngIf="submitted && k.upi.errors" class="invalid-feedback">
+          <div *ngIf="k.upi.errors.required">UPI is required</div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="account" class="col-sm-2 col-form-label text-right font-weight-bold">Account No.</label>
+        <div class="col-sm-10">
+          <input type="number" formControlName="account" id="account" class="form-control" [ngClass]="{'is-invalid': submitted && k.account.errors }" />
+        </div>
+        <div *ngIf="submitted && k.account.errors" class="invalid-feedback">
+          <div *ngIf="k.account.errors.required">Account No. is required</div>
+        </div>
+      </div>
+    </form>
+    <mat-card-actions class="mb-3">
+      <button mat-button class="btn btn-success float-right submitbtn" (onClick)="onVerify()">Submit </button>
+      <button mat-button class="btn btn-danger float-left submitbtn">Maintenance </button>
+      <button mat-button class="btn btn-warning float-left submitbtn">Get OTP </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+
+
+<mat-card class="mb-4 ml-3 mr-3">
+  <mat-card-header>
+    <mat-card-title>
+      Paytm Number
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form style="margin: auto !important;">
+      <div class="form-group row">
+        <label for="mob" class="col-sm-2 col-form-label text-right font-weight-bold">Search</label>
+        <div class="col-sm-10">
+          <input type="number" formControlName="mobile" id="mob" class="form-control"  />
+        </div>
+      </div>
+      </form>
+
+    <mat-table #table>
+
+        <ng-container matColumnDef="mobile">
+          <mat-header-cell *matHeaderCellDef> Mobile </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.mobile}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="bank">
+          <mat-header-cell *matHeaderCellDef> Bank </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.bank}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="wallet">
+          <mat-header-cell *matHeaderCellDef> Wallet </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.wallet}} </mat-cell>
+        </ng-container>
+
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+  </mat-card-content>
+</mat-card>

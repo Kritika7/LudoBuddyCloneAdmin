@@ -1,0 +1,37 @@
+<h1 class="text-left mt-3 mb-2 ml-3">Settings</h1>
+<mat-card class="mb-3 ml-3 mr-3">
+  <h3> Change Name </h3>
+  <mat-card-content>
+    <form [formGroup]="updateName" (ngSubmit)="onUpdateName()">
+      <div class="form-group">
+        <mat-label>Name</mat-label>
+        <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': nameSubmitted && f.name.errors }" />
+        <div *ngIf="nameSubmitted && f.name.errors" class="invalid-feedback">
+          <div *ngIf="f.name.errors.required">Name is required</div>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end center" >
+        <button mat-button class="btn btn-success" mat-raised-button>Update Name </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+<mat-card class="mb-3 ml-3 mr-3">
+  <h3>Change Password </h3>
+  <mat-card-content>
+    <form [formGroup]="updatePassword" (ngSubmit)="onUpdatePassword()">
+      <div class="form-group">
+        <mat-label>Password</mat-label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': passwordSubmitted && k.password.errors }" />
+        <div *ngIf="passwordSubmitted && k.password.errors" class="invalid-feedback">
+          <div *ngIf="k.password.errors.required">Password is required</div>
+        </div>
+      </div>
+      <div>
+        <div fxLayout="row" fxLayoutAlign="end center" >
+          <button mat-button class="btn btn-success" mat-raised-button >Update Password </button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

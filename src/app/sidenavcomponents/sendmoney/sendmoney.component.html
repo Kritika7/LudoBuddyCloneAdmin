@@ -1,0 +1,43 @@
+<div>
+  <div>
+    <h2 class="Primary">Send Money</h2>
+  </div>
+</div>
+  <form [formGroup]="sendMoney">
+    <mat-grid-list cols="1" rowHeight="75px" >
+      <mat-grid-tile>
+        <div class="text-inside">
+          <mat-form-field>
+            <input matInput placeholder="Player Mobile" value={{pMobile}} formControlName="playermobile" readonly>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="text-inside">
+          <mat-form-field>
+            <mat-select name="selectednumber" [(value)]="selectedNumber" placeholder="Paytm">
+              <mat-option [value]="'Select'">Select</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="text-inside">
+          <mat-form-field>
+            <input matInput placeholder="Current Balance" value={{currentBalance}} formControlName="currentBalance" readonly>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="text-inside">
+          <mat-form-field>
+            <input matInput placeholder="Withdrawal Amount" value={{withdrawalAmount}} formControlName="Withdrawal Amount">
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <button mat-raised-button class="btn btn-primary float-right">Send</button>
+
+    </mat-grid-list>
+  </form>
+

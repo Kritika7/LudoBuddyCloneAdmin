@@ -1,0 +1,24 @@
+div {
+  >div.ludo-logo {
+    >img {
+        max-height: 250px;
+    }
+  }
+  >div.ludo-main {
+      margin-top: 6rem !important;
+    >div{
+        text-align: center;;
+      >button {
+        max-width: 200px;
+        >mat-icon.mat-18 {
+        }
+      }
+    }
+  }
+  >div:nth-of-type(3) {
+    >button {
+      >mat-icon.mat-18 {
+      }
+    }
+  }
+}

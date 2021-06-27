@@ -1,0 +1,40 @@
+<h1 class="ml-3">Sell Chips</h1>
+<mat-card class="mb-4 ml-3 mr-3 chipscard">
+  <mat-card-content *ngIf="updateForm">
+    <form [formGroup]="updateForm" (ngSubmit)="onUpdate()" style="margin: auto !important;">
+      <div class="form-group row">
+        <label for="amnt" class="col-sm-2 col-form-label text-right font-weight-bold">Amount</label>
+        <div class="col-sm-10">
+          <input type="text" formControlName="amount" id="amnt" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.amount.errors }" />
+          <p class="text-primary">Minimum withdraw: 50 Chips </p>
+        </div>
+        <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+          <div *ngIf="f.amount.errors.required">Amount is required</div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="nmbr" class="col-sm-2 col-form-label text-right font-weight-bold">Mobile No.</label>
+        <div class="col-sm-10">
+          <input type="number" id="nmbr" formControlName="mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+          <p class="text-primary">Withdrawal may take upto 6-48 Hours</p>
+        </div>
+        <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+          <div *ngIf="f.mobile.errors.required">Mobile is required</div>
+        </div>
+      </div>
+    </form>
+    <hr>
+    <mat-card-actions class="mb-3">
+      <button mat-button class="btn btn-link float-left">Contact Support </button>
+      <button mat-button class="btn btn-success float-right updatebtn">Submit </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+<mat-card class="mb-4 ml-3 mr-4 requestcard">
+  <div>
+    <mat-card-header>
+      <mat-card-title> Pending Request </mat-card-title>
+    </mat-card-header>
+  </div>
+  <mat-card-content> </mat-card-content>
+</mat-card>

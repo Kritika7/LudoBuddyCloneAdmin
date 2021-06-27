@@ -1,0 +1,67 @@
+<div class="p-3">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <h2>Add Chips</h2>
+    <button class="btn btn-danger" (click)="isShown = !isShown">
+      <mat-icon class="playicon">play_circle_filled</mat-icon>
+      Help
+    </button>
+  </div>
+  <div *ngIf="isShown">
+    <p>Please watch the video below for help.</p>
+    <iframe [src]='videoURL|safe' frameborder="0" width="100%" height="600px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
+  </div>
+</div>
+
+<mat-card class="ml-3 mr-3" style="border: 1px solid #00c0ef;">
+  <ng-container *ngIf="!afterPaid">
+    <img src="../../../assets/images/paytm.png" style="width: 100%;">
+    <hr>
+    <p class="text-center">For <b> automated transfer </b> of chips into your account. Send money to below <b> UPI ID </b></p>
+    <div class="input-group mb-3">
+      <input disabled type="text" class="form-control" [value]="" placeholder="" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="input-group-text btn btn-success" id="basic-addon2" style="color: #fff;
+        background-color: #1e7e34;
+        border-color: #1c7430;" (click)="copy()">Copy</button>
+      </div>
+    </div>
+    <ul class="mt-2 pl-3">
+      <li>Minimum Deposit: <b>50 Chips</b> </li>
+      <li class="text-warning">Mobile No changes regularly, Always check before sending money.</li>
+      <li class="text-danger">Don't use Google Pay, Phone Pe, Etc.</li>
+      <li class="text-danger">Pay using Paytm only.</li>
+      <li class="text-success">Money will be credited on account immediately</li>
+    </ul>
+    <hr>
+    <button class="btn btn-light border border-dark">Contact Support</button>
+    <button class="btn btn-success float-right" (click)="afterPaid = !afterPaid">Money Sent
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </ng-container>
+  <ng-container *ngIf="afterPaid">
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <img src="../../../assets/images/ludo.png" style="width: 22%;">
+    </div>
+    <hr>
+    <p class="text-center">Enter Transaction ID of payment below.</p>
+    <form [formGroup]="paymentForm">
+      <mat-label><b>Transaction ID</b></mat-label>
+      <div class="input-group mb-3">
+        <input type="text" formControlName="txnId" class="form-control"  placeholder="Txn ID" aria-describedby="basic-addon2">
+      </div>
+
+      <mat-label><b>Amount</b></mat-label>
+      <div class="input-group mb-3">
+        <input type="number" formControlName="amount" class="form-control"  placeholder="..." aria-describedby="basic-addon2">
+      </div>
+      <p class="text-center">1 Chip = 1 Rs</p>
+    </form>
+    <hr>
+    <button class="btn btn-light border border-dark">Contact Support</button>
+    <button class="btn btn-success float-right" (click)="buy()">
+      <mat-icon>add</mat-icon>
+      Add Chips
+    </button>
+  </ng-container>
+
+</mat-card>

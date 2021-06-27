@@ -1,0 +1,28 @@
+div.p-2.animate {
+    
+    background: linear-gradient(28deg, #2dc8a0, #4dc82d, #d88be7, #f52e15, #776cf1, #0cf118, #0b0c0b, #13f5e6);
+    background-size: 1600% 1600%;
+
+    -webkit-animation: AnimationName 23s ease infinite;
+    -moz-animation: AnimationName 23s ease infinite;
+    animation: AnimationName 23s ease infinite;
+
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 11%}
+    50%{background-position:100% 90%}
+    100%{background-position:0% 11%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 11%}
+    50%{background-position:100% 90%}
+    100%{background-position:0% 11%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 11%}
+    50%{background-position:100% 90%}
+    100%{background-position:0% 11%}
+}
+>router-outlet {
+}
+}
